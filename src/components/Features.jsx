@@ -31,8 +31,7 @@ export const BentoTilt = ({ children, className = "" }) => {
       className={className}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ transform: transformStyle }}
-    >
+      style={{ transform: transformStyle }}>
       {children}
     </div>
   );
@@ -59,6 +58,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
   return (
     <div id="implementation" className="relative size-full">
       <video
+        preload="none"
         src={src}
         loop
         muted
@@ -79,8 +79,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white/20"
-          >
+            className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white/20">
             {/* Radial gradient hover effect */}
             <div
               className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
@@ -106,7 +105,9 @@ const Features = () => (
           Implementation
         </p>
         <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50 justify-belle">
-        Implement neural networks or behavior trees enhanced by machine learning to mimic human-like decision-making processes. These NPCs learn from player interactions, adjusting their strategies over time.
+          Implement neural networks or behavior trees enhanced by machine
+          learning to mimic human-like decision-making processes. These NPCs
+          learn from player interactions, adjusting their strategies over time.
         </p>
       </div>
 
@@ -176,6 +177,7 @@ const Features = () => (
 
         <BentoTilt className="bento-tilt_2">
           <video
+            preload="none"
             src="videos/feature-5.mp4"
             loop
             muted

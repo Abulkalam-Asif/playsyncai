@@ -5,10 +5,8 @@ import { TiLocationArrow } from "react-icons/ti";
 import { useEffect, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa6";
 
-
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
-
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,16 +98,15 @@ const Hero = () => {
 
       <div
         id="video-frame"
-        className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
-      >
+        className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75">
         <div>
           <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
             <VideoPreview>
               <div
                 onClick={handleMiniVdClick}
-                className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
-              >
+                className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100">
                 <video
+                  preload="none"
                   ref={nextVdRef}
                   src={getVideoSrc((currentIndex % totalVideos) + 1)}
                   autoPlay
@@ -124,6 +121,7 @@ const Hero = () => {
           </div>
 
           <video
+            preload="none"
             ref={nextVdRef}
             src={getVideoSrc(currentIndex)}
             autoPlay
@@ -134,6 +132,7 @@ const Hero = () => {
             onLoadedData={handleVideoLoad}
           />
           <video
+            preload="none"
             src={getVideoSrc(
               currentIndex === totalVideos - 1 ? 1 : currentIndex
             )}
@@ -156,15 +155,18 @@ const Hero = () => {
             </h1>
 
             <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-              Experience the Effects of <br />AI-Driven NPC Behavior.
+              Experience the Effects of <br />
+              AI-Driven NPC Behavior.
             </p>
 
-            <a href="https://github.com/PlaySyncAI/Enhancing-NPC-Behavior-Utilizing-AI"><Button
-              id="watch-trailer"
-              title="Additional Info"
-              leftIcon={<FaGithub />}
-              containerClass="bg-yellow-300 flex-center gap-1"
-            /></a>
+            <a href="https://github.com/PlaySyncAI/Enhancing-NPC-Behavior-Utilizing-AI">
+              <Button
+                id="watch-trailer"
+                title="Additional Info"
+                leftIcon={<FaGithub />}
+                containerClass="bg-yellow-300 flex-center gap-1"
+              />
+            </a>
           </div>
         </div>
       </div>
